@@ -8,7 +8,7 @@
 
 <img src="https://static.rtast.cn/static/kotlin/made-with-kotlin.svg" alt="made-with-kt">
 <br>
-<img src="https://img.shields.io/github/actions/workflow/status/DangoTown/ViewDimension/ci.yml" alt="buildStatus">
+<img src="https://img.shields.io/github/actions/workflow/status/DangoTown/ViewDimension/ci.yaml" alt="buildStatus">
 <img src="https://img.shields.io/github/last-commit/DangoTown/ViewDimension" alt="lastCommit">
 <img src="https://img.shields.io/github/license/DangoTown/ViewDimension?label=license&logo=apache" alt="license">
 <img src="https://img.shields.io/github/v/release/DangoTown/ViewDimension?include_prereleases" alt="release">
