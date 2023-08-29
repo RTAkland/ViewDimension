@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "viewdimension",
+  "version": "${version}",
+  "name": "ViewDimension",
+  "description": "在玩家列表中展示玩家所处的维度",
+  "authors": [
+    "RTAkland"
+  ],
+  "contact": {
+    "repo": "https://github.com/RTAkland/ViewDimension"
+  },
+  "license": "Apache-2.0",
+  "icon": "assets/viewdimension/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      {
+        "adapter": "kotlin",
+        "value": "cn.rtast.viewdimension.ViewDimension"
+      }
+    ]
+  },
+  "mixins": [
+    "viewdimension.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
