@@ -17,33 +17,52 @@ package cn.rtast.viewdimension
 
 import net.fabricmc.api.DedicatedServerModInitializer
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
+import net.minecraft.scoreboard.ServerScoreboard
 import net.minecraft.scoreboard.Team
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class ViewDimension : DedicatedServerModInitializer {
+
+    private var currentScoreboard: ServerScoreboard? = null
+
+    private var initializedMod = false
+
     override fun onInitializeServer() {
         ServerTickEvents.START_SERVER_TICK.register { tick ->
-            val scoreboard = tick.scoreboard
-            if (!scoreboard.teamNames.contains(Dimension.TheNether.id)) {
-                scoreboard.addTeam(Dimension.TheNether.id)
-                scoreboard.getTeam(Dimension.TheNether.id)!!.suffix = makeText("the_nether")
+            this.currentScoreboard = tick.scoreboard
+            if (!this.initializedMod) {
+                this.initializeMod()
+                this.initializedMod = true
             }
-            if (!scoreboard.teamNames.contains(Dimension.TheEnd.id)) {
-                scoreboard.addTeam(Dimension.TheEnd.id)
-                scoreboard.getTeam(Dimension.TheEnd.id)!!.suffix = makeText("the_end")
+            if (!this.currentScoreboard!!.teamNames.contains(Dimension.TheNether.id)) {
+                this.currentScoreboard!!.addTeam(Dimension.TheNether.id)
+                this.currentScoreboard!!.getTeam(Dimension.TheNether.id)!!.suffix = makeText("the_nether")
             }
-            if (!scoreboard.teamNames.contains(Dimension.Overworld.id)) {
-                scoreboard.addTeam(Dimension.Overworld.id)
-                scoreboard.getTeam(Dimension.Overworld.id)!!.suffix = makeText("overworld")
+            if (!this.currentScoreboard!!.teamNames.contains(Dimension.TheEnd.id)) {
+                this.currentScoreboard!!.addTeam(Dimension.TheEnd.id)
+                this.currentScoreboard!!.getTeam(Dimension.TheEnd.id)!!.suffix = makeText("the_end")
+            }
+            if (!this.currentScoreboard!!.teamNames.contains(Dimension.Overworld.id)) {
+                this.currentScoreboard!!.addTeam(Dimension.Overworld.id)
+                this.currentScoreboard!!.getTeam(Dimension.Overworld.id)!!.suffix = makeText("overworld")
             }
 
             val playerList = tick.playerManager.playerList
             playerList.forEach { p ->
                 val currentDimension = p.world.dimensionKey.value.path
-                scoreboard.addPlayerToTeam(p.entityName.toString(), Team(scoreboard, currentDimension))
+                this.currentScoreboard!!.addPlayerToTeam(
+                    p.entityName.toString(),
+                    Team(this.currentScoreboard!!, currentDimension)
+                )
             }
+        }
+    }
+
+    private fun initializeMod() {
+        for (i in Dimension.values().iterator()) {
+            this.currentScoreboard!!.removeTeam(Team(this.currentScoreboard, i.id))
         }
     }
 
@@ -56,7 +75,7 @@ class ViewDimension : DedicatedServerModInitializer {
             "the_nether" -> Text.literal("下界")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.RED) }
 
-            else -> Text.translatable("末地")
+            else -> Text.literal("末地")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.DARK_PURPLE) }
         }
         val footer = Text.literal(">  ").styled { it.withBold(true).withItalic(true).withColor(Formatting.GRAY) }

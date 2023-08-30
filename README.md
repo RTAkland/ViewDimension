@@ -24,7 +24,7 @@
 > 点击[这里](https://github.com/DangoTown/ViewDimension/releases/latest)快速下载最新版本的`ViewDimension`
 
 # 原理
-> 此Mod基于原版命令: `team` 但是使用的不是命令而是 命令后的API, 源代码非常简单只有一个文件， 如果你想对其
+> 此Mod基于原版命令: `team` 但是使用的不是命令而是 命令后的API, 如果你想对其
 > 继续开发请遵守[Apache-2.0](./LICENSE)协议开发， 并著名原作者信息
 
 # 开源
