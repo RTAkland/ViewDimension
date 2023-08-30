@@ -18,6 +18,7 @@
 
 
 # 使用
+> 这是一个 服务端  `fabric mod` 仅需安装在服务端， 客户端安装无效。
 > 仅需要将`fabric language kotlin`和此mod放入mods文件夹内启动服务器无需任何操作即可使用,
 > 点击[这里](https://github.com/FabricMC/fabric-language-kotlin/releases/latest)快速下载最新版本的`fabric language kotlin`
 > 点击[这里](https://github.com/DangoTown/ViewDimension/releases/latest)快速下载最新版本的`ViewDimension`
