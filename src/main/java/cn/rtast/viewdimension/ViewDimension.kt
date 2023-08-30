@@ -53,7 +53,7 @@ class ViewDimension : DedicatedServerModInitializer {
             "overworld" -> Text.literal("主世界")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.GREEN) }
 
-            "the_nether" -> Text.literal("下届")
+            "the_nether" -> Text.literal("下界")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.RED) }
 
             else -> Text.translatable("末地")
