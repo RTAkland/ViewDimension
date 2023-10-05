@@ -6,7 +6,7 @@
 
 <h2>在玩家列表中展示所有玩家所处的维度！</h2>
 
-<img src="https://static.rtast.cn/static/kotlin/made-with-kotlin.svg" alt="made-with-kt">
+<img src="https://static.byteas.top/static/kotlin/made-with-kotlin.svg" alt="made-with-kt">
 <br>
 <img src="https://img.shields.io/github/actions/workflow/status/DangoTown/ViewDimension/ci.yaml" alt="buildStatus">
 <img src="https://img.shields.io/github/last-commit/DangoTown/ViewDimension" alt="lastCommit">
