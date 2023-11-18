@@ -69,13 +69,13 @@ class ViewDimension : DedicatedServerModInitializer {
     private fun makeText(dimension: String): MutableText {
         val header = Text.literal("  <").styled { it.withBold(true).withItalic(true).withColor(Formatting.GRAY) }
         val dimensionText: Text = when (dimension) {
-            "overworld" -> Text.literal("主世界")
+            "overworld" -> Text.literal("Overworld")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.GREEN) }
 
-            "the_nether" -> Text.literal("下界")
+            "the_nether" -> Text.literal("The Nether")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.RED) }
 
-            else -> Text.literal("末地")
+            else -> Text.literal("The End")
                 .styled { it.withBold(true).withItalic(true).withColor(Formatting.DARK_PURPLE) }
         }
         val footer = Text.literal(">  ").styled { it.withBold(true).withItalic(true).withColor(Formatting.GRAY) }
@@ -83,7 +83,9 @@ class ViewDimension : DedicatedServerModInitializer {
     }
 
     enum class Dimension(val id: String) {
-        TheNether("the_nether"), TheEnd("the_end"), Overworld("overworld")
+        TheNether("the_nether"),
+        TheEnd("the_end"),
+        Overworld("overworld")
     }
 
 }
