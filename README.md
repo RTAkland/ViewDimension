@@ -23,6 +23,8 @@
 > 点击[这里](https://github.com/FabricMC/fabric-language-kotlin/releases/latest)快速下载最新版本的`fabric language kotlin`
 > 点击[这里](https://github.com/DangoTown/ViewDimension/releases/latest)快速下载最新版本的`ViewDimension`
 
+> 注意: ***仅服务端可用*** | ***Server side only***
+
 # 原理
 > 此Mod基于原版命令: `team` 但是使用的不是命令而是 命令后的API, 如果你想对其
 > 继续开发请遵守[Apache-2.0](./LICENSE)协议开发， 并著名原作者信息
