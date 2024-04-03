@@ -1,5 +1,4 @@
-<div align=center>
-
+<div align="center">
 <h1>View Dimension</h1>
 
 <h2>Made by RTAkland</h2>
@@ -25,6 +24,11 @@
 
 
 > 继续开发请遵守[Apache-2.0](./LICENSE)协议开发， 并著名原作者信息
+
+# 展示
+https://www.bilibili.com/video/BV1v14y1y7Vf/
+
+![img](https://github.com/RTAkland/Static/blob/main/images/image.png)
 
 # 开源
 
