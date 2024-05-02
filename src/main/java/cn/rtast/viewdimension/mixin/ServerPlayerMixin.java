@@ -18,8 +18,12 @@
 package cn.rtast.viewdimension.mixin;
 
 import cn.rtast.viewdimension.ViewDimension;
+import com.mojang.authlib.GameProfile;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,10 +31,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ServerPlayerEntity.class)
-public class ServerPlayerMixin {
+public abstract class ServerPlayerMixin extends PlayerEntity {
 
     @Unique
     public ServerPlayerEntity player = (ServerPlayerEntity) (Object) this;
+
+    public ServerPlayerMixin(World world, BlockPos pos, float yaw, GameProfile gameProfile) {
+        super(world, pos, yaw, gameProfile);
+    }
 
 
     @Inject(method = "getPlayerListName", at = @At("RETURN"), cancellable = true)

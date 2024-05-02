@@ -17,10 +17,12 @@
 
 package cn.rtast.viewdimension.mixin;
 
+import net.minecraft.network.ClientConnection;
+import net.minecraft.network.listener.ServerPlayPacketListener;
+import net.minecraft.network.listener.TickablePacketListener;
 import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.network.ServerPlayNetworkHandler;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.network.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -28,7 +30,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerPlayNetworkHandler.class)
-public abstract class ServerPlayNetworkMixin {
+public abstract class ServerPlayNetworkMixin extends ServerCommonNetworkHandler implements ServerPlayPacketListener, PlayerAssociatedNetworkHandler, TickablePacketListener {
+
+    public ServerPlayNetworkMixin(MinecraftServer server, ClientConnection connection, ConnectedClientData clientData) {
+        super(server, connection, clientData);
+    }
 
     @Shadow
     public abstract ServerPlayerEntity getPlayer();
