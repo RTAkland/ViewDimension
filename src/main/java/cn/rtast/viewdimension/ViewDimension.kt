@@ -30,13 +30,13 @@ class ViewDimension : ModInitializer {
             val dimension = player.world.dimension.effects.path
             val oldName = player.name.string
             val dimensionText = when (dimension) {
-                "overworld" -> Text.literal(" <").append(Text.translatable("vdim.overworld")).append(Text.literal(">"))
+                "overworld" -> Text.literal(" <主世界>")
                     .styled { it.withColor(Formatting.GREEN).withItalic(true) }
-                "the_nether" ->Text.literal(" <").append(Text.translatable("vdim.thenether")).append(Text.literal(">"))
+                "the_nether" ->Text.translatable(" <下界>")
                     .styled { it.withColor(Formatting.DARK_RED).withItalic(true) }
-                "the_end" -> Text.literal(" <").append(Text.translatable("vdim.theend")).append(Text.literal(">"))
+                "the_end" -> Text.translatable(" <末地w56s>")
                     .styled { it.withColor(Formatting.DARK_PURPLE).withItalic(true) }
-                else -> Text.literal(" <$dimension>")
+                else -> Text.literal(" $dimension")
                     .styled { it.withColor(Formatting.GRAY).withItalic(true) }
             }
             return Text.literal(oldName).append(dimensionText)
